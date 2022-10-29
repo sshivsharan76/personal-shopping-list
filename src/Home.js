@@ -1,0 +1,68 @@
+import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
+
+import { View } from "./View";
+import "./App.css";
+// getting the values of local storage
+const getDatafromLS = () => {
+  const data = localStorage.getItem("items");
+  if (data) {
+    return JSON.parse(data);
+  } else {
+    return [];
+  }
+};
+
+
+const Home= () => {
+  const navigate = useNavigate();
+
+  const navigateToAddItem = () => {
+    // navigate to /AddItem
+    navigate('./AddItem');
+  };
+
+  // main array of objects state || items state || items array of objects
+  const [items, setitems] = useState(getDatafromLS());
+
+  
+
+  // delete item from LS
+  const deleteitem = (title) => {
+    const filtereditems = items.filter((element) => {
+      return element.title !== title;
+    });
+    setitems(filtereditems);
+  };
+
+  // saving data to local storage
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
+
+  return (
+    <div >
+  <button className="navbtn-add" onClick={navigateToAddItem}>Add Item</button>
+   <h1 className="subhead">Daily Groceries</h1>
+        <div >
+              <div >
+                <table className="table">
+                  <thead >
+                    <tr>
+                      <th>Title</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody className="disp">
+                    <View items={items} deleteitem={deleteitem} />
+                  </tbody>
+                </table>
+              </div>
+        </div>
+    </div>
+  );
+};
+
+export default Home;
