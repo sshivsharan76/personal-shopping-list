@@ -17,7 +17,8 @@ In the project directory, you can run:
 * Used React hooks for the same
 * Used localStorage to store the data.
 # Landing Page
-![image](https://user-images.githubusercontent.com/108619671/198845054-fa0669ac-3c89-4dc6-a35f-4271882f87d9.png)
+![image](https://user-images.githubusercontent.com/108619671/198869723-1c5dea7c-7246-4178-acd7-d2972783a509.png)
+
 # Technologies Used
 * REACT JS
 * HTML 
