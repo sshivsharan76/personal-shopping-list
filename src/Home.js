@@ -43,20 +43,20 @@ const Home= () => {
   return (
     <div >
   <button className="navbtn-add" onClick={navigateToAddItem}>Add Item</button>
-   <h1 className="subhead">Daily Groceries</h1>
+   <h1 className="subheadhome">Daily Groceries</h1>
         <div >
               <div >
                 <table className="table">
                   <thead >
-                    <tr>
-                      <th>Title</th>
-                      <th>Quantity</th>
-                      <th>Price</th>
-                      <th>Delete</th>
+                    <tr >
+                      <th style={{borderBottom: ' dashed rgb(190, 189, 189) .2rem',borderRight: ' dashed rgb(190, 189, 189) .2rem'}}>Title</th>
+                      <th style={{borderBottom: ' dashed rgb(190, 189, 189) .2rem',borderRight: ' dashed rgb(190, 189, 189) .2rem'}}>Quantity</th>
+                      <th style={{borderBottom: ' dashed rgb(190, 189, 189) .2rem',borderRight: ' dashed rgb(190, 189, 189) .2rem'}}>Price</th>
+                      <th style={{borderBottom: ' dashed rgb(190, 189, 189) .2rem'}}>Delete</th>
                     </tr>
                   </thead>
                   <tbody className="disp">
-                    <View items={items} deleteitem={deleteitem} />
+                    <View  items={items} deleteitem={deleteitem} />
                   </tbody>
                 </table>
               </div>

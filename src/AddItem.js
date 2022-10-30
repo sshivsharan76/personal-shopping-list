@@ -55,7 +55,7 @@ function AddItem() {
     return (
         <div className="form-container">
                <button  className="navbtn-home" onClick={navigateHome}>Home</button>
-               <h1 className="subhead" >Add Item</h1>
+               <h1 className="subheadadd" >Add Item</h1>
            
         <form  onSubmit={handleAdditemsubmit}  >
           <label for="titleId">Title:</label>
