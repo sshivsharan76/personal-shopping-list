@@ -1,6 +1,8 @@
 import React from "react";
-
-export const View = ({ items, deleteitem }) => {
+import { useContext } from "react";
+import ItemContext from "./ItemContext";
+export const View = () => {
+  const { items, deleteitem }=useContext(ItemContext);
   return items.map((item) => (
     <tr  key={item.title}>
       <td >{item.title}</td>
