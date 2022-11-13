@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";//to dynamically update data
 import { useNavigate} from 'react-router-dom';//for navgation on page
-
 import "./App.css";
 // getting the values of local storage
 const getDatafromLS = () => {
@@ -14,7 +13,6 @@ const getDatafromLS = () => {
 
 function AddItem() {
     const navigate = useNavigate();
-
   
     const navigateHome = () => {
       //  navigate to /
@@ -32,20 +30,29 @@ function AddItem() {
 
   // form submit event
   const handleAdditemsubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     // creating an object
+    
     let item = {
       title,
       Quantity,
       Price
     };
     if(title!=='')
-    setitems([...items, item]);
+    {
+      setitems([...items, item]);
+    }
+    // alert(`Added ${title} to list`,navigateHome())
+    
     setTitle("");
     setQuantity("");
     setPrice("");
+    
+    
+    
   };
 
+  
   
   // saving data to local storage
   useEffect(() => {
@@ -57,8 +64,8 @@ function AddItem() {
                <button  className="navbtn-home" onClick={navigateHome}>Home</button>
                <h1 className="subheadadd" >Add Item</h1>
            
-        <form  onSubmit={handleAdditemsubmit}  >
-          <label for="titleId">Title:</label>
+        <form  onSubmit={handleAdditemsubmit}  action="/" >
+          <label htmlFor="titleId">Title:</label>
           <input
             id="titleId"
             type="text"
@@ -66,15 +73,15 @@ function AddItem() {
             value={title}
           ></input>
           <br></br>
-          <label for="quantityId">Quantity:</label>
+          <label htmlFor="quantityId">Quantity:</label>
           <input
             id="quantityId"
-            type="number"
+            type="text"
             onChange={(e) => setQuantity(e.target.value)}
             value={Quantity}
           ></input>
           <br></br>
-          <label for="priceId">Price:</label>
+          <label htmlFor="priceId">Price:</label>
           <input
             id="priceId"
             type="number"
@@ -82,7 +89,7 @@ function AddItem() {
             value={Price}
           ></input>
           <br></br>
-          <button type="submit" >
+          <button type="submit"  >
             Add 
           </button>
         </form>
