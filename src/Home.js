@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom';
 
 import { View } from "./View";
+import ItemContext from "./ItemContext";
 import "./App.css";
-// getting the values of local storage
+//getting the values of local storage
 const getDatafromLS = () => {
   const data = localStorage.getItem("items");
   if (data) {
@@ -11,8 +12,7 @@ const getDatafromLS = () => {
   } else {
     return [];
   }
-};
-
+}; 
 
 const Home= () => {
   const navigate = useNavigate();
@@ -56,7 +56,10 @@ const Home= () => {
                     </tr>
                   </thead>
                   <tbody className="disp">
-                    <View  items={items} deleteitem={deleteitem} />
+                    <ItemContext.Provider  value={{items , deleteitem}}>
+                      <View />
+                    </ItemContext.Provider>
+                    {/* <View  items={items} deleteitem={deleteitem} /> */}
                   </tbody>
                 </table>
               </div>
